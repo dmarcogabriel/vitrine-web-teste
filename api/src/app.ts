@@ -1,11 +1,13 @@
 import express from 'express';
 import cors from 'cors';
-import router from './api/http/routes';
-
 import dotenv from 'dotenv';
-import {handleError} from './api/middlewares/errorHandler.middleware';
+import router from '@app/api/http/routes';
+import {handleError} from '@app/api/http/middlewares/errorHandler.middleware';
+import {env} from 'node:process';
 
-dotenv.config();
+if (env.NODE_ENV !== 'production') {
+  dotenv.config();
+}
 
 const app = express();
 
