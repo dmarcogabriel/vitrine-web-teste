@@ -11,12 +11,17 @@ export class ProductRepository {
   }
 
   public async findById(productId: string) {
-    const foundProduct = await this.model.findById(productId);
+    try {
+      const foundProduct = await this.model.findById(productId);
 
-    if (!foundProduct) {
+      if (!foundProduct) {
+        throw new CustomError('Produto não encontrado.', 400);
+      }
+
+      return foundProduct.toJSON();
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (err) {
       throw new CustomError('Produto não encontrado.', 400);
     }
-
-    return foundProduct.toJSON();
   }
 }

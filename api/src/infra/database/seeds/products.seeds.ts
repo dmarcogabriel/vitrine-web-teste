@@ -57,8 +57,6 @@ const Products = [
 ];
 
 export const productSeeds = async () => {
-  console.log('Criando Seeds de Produtos...');
-
   try {
     const promises = Products.map((product) => {
       const newProduct = ProductModel.build(product);
@@ -67,15 +65,11 @@ export const productSeeds = async () => {
     });
 
     await Promise.all(promises);
-
-    console.log('Seeds de Produtos criados com sucesso.');
   } catch (err) {
     if (err instanceof mongoose.mongo.MongoServerError) {
       if (err.code === 11000) {
-        console.log('Seeds de Produtos já existem.');
         return;
       }
     }
-    console.log('Falha ao criar seeds', err);
   }
 };
