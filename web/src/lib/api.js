@@ -5,6 +5,9 @@ async function fetchData(endpoint, options) {
   const res = await fetch(`${BASE_URL}/${endpoint}`, {
     method: options.method,
     body: options.body ? JSON.stringify(options.body) : undefined,
+    next: {
+      revalidate: 60,
+    },
   });
 
   const data = await res.json();
