@@ -30,7 +30,7 @@ export function ProductCard({product}) {
           </CardDescription>
         </CardHeader>
 
-        <CardContent>
+        <CardContent className="line-clamp-2">
           <p>{product.description}</p>
         </CardContent>
 
