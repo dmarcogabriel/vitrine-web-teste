@@ -8,4 +8,5 @@ export default {
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: '<rootDir>/',
   }),
+  modulePathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/'],
 };

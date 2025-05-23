@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import router from '@app/api/http/routes';
 import {handleError} from '@app/api/http/middlewares/errorHandler.middleware';
 import {env} from 'node:process';
+import cookieSession from 'cookie-session';
 
 if (env.NODE_ENV !== 'production') {
   dotenv.config();
@@ -11,6 +12,12 @@ if (env.NODE_ENV !== 'production') {
 
 const app = express();
 
+app.use(
+  cookieSession({
+    signed: false,
+    secure: false,
+  }),
+);
 app.use(express.json());
 app.use(cors());
 
