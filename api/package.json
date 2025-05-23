@@ -8,7 +8,8 @@
     "build": "rimraf -rf dist && tsc && tsc-alias",
     "start": "node dist/src/index.js",
     "lint": "eslint src",
-    "test": "jest --watchAll --no-cache",
+    "test": "jest",
+    "test:w": "jest --watchAll --no-cache",
     "test:c": "jest --coverage"
   },
   "dependencies": {
