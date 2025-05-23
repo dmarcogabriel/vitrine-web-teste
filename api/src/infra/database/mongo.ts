@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import {env} from 'node:process';
 import {productSeeds} from './seeds/products.seeds';
+import {userSeeds} from './seeds/user.seeds';
 
 export default {
   async connect() {
@@ -18,5 +19,10 @@ export default {
 
   async seeds() {
     await productSeeds();
+    await userSeeds();
+  },
+
+  async closeConnection() {
+    await mongoose.connection.close();
   },
 };

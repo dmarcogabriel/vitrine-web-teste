@@ -1,1 +1,2 @@
-export {default as ProductModel} from './Product';
+export * from './Product';
+export * from './User';

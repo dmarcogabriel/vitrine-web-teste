@@ -17,8 +17,4 @@ export class ProductController {
       product,
     });
   }
-
-  public static async create(req: Request, res: Response) {
-    // todo: implement here
-  }
 }

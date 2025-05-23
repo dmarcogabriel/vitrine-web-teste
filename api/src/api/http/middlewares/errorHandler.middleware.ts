@@ -11,11 +11,17 @@ export const handleError = (
   if (error instanceof CustomError) {
     res.status(error.status).json({
       error: error.message,
+      inputErrors: error.inputErrors.reduce((prev, error) => {
+        return {
+          ...prev,
+          [error.path]: error.reason,
+        };
+      }, {}),
     });
     return;
   }
 
   res.status(500).json({
-    error: 'Ops, algo de errado aconteceu, tente novamente mais tarde.',
+    error: 'Ops, tivemos problemas internos, tente novamente mais tarde.',
   });
 };

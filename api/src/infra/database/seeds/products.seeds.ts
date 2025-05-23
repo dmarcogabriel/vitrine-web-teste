@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import {ProductModel} from '../models';
+import {ProductModel} from '@app/infra/database/models';
 
 const Products = [
   {
@@ -59,9 +59,7 @@ const Products = [
 export const productSeeds = async () => {
   try {
     const promises = Products.map((product) => {
-      const newProduct = ProductModel.build(product);
-
-      return newProduct.save();
+      return ProductModel.build(product).save();
     });
 
     await Promise.all(promises);

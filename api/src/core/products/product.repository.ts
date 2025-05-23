@@ -1,8 +1,8 @@
 import {CustomError} from '@app/common/errors/CustomError';
-import ProductModel from '@app/infra/database/models/Product';
+import {type ProductModelInterface} from '@app/infra/database/models/Product';
 
 export class ProductRepository {
-  constructor(private readonly model: typeof ProductModel) {}
+  constructor(private readonly model: ProductModelInterface) {}
 
   public async findAllProducts() {
     const products = await this.model.find();

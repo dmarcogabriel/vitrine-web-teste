@@ -12,7 +12,7 @@ interface ProductAttrs {
   description: string;
   amount: number;
 }
-interface ProductModel extends mongoose.Model<ProductDocument> {
+interface ProductModelInterface extends mongoose.Model<ProductDocument> {
   build(attrs: ProductAttrs): ProductDocument;
 }
 
@@ -56,12 +56,11 @@ ProductSchema.pre('save', function (done) {
   done();
 });
 
-ProductSchema.statics.build = (attrs: Omit<ProductAttrs, 'slug'>) =>
-  new Model(attrs);
+ProductSchema.statics.build = (attrs: ProductAttrs) => new ProductModel(attrs);
 
-const Model = mongoose.model<ProductDocument, ProductModel>(
+const ProductModel = mongoose.model<ProductDocument, ProductModelInterface>(
   'Product',
   ProductSchema,
 );
 
-export default Model;
+export {ProductModel, ProductModelInterface};
