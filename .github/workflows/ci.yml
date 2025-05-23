@@ -24,9 +24,11 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install
-    - run: npm run lint
+        cache: 'yarn'
+        cache-dependency-path: ./api/yarn.lock
+
+    - run: yarn install
+    - run: yarn lint
 
   test-api:
     runs-on: ubuntu-latest
@@ -45,9 +47,10 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install
-    - run: npm run test
+        cache: 'yarn'
+        cache-dependency-path: ./api/yarn.lock
+    - run: yarn install
+    - run: yarn test
 
   lint-web:
     runs-on: ubuntu-latest
@@ -66,6 +69,7 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install
-    - run: npm run lint
+        cache: 'yarn'
+        cache-dependency-path: ./web/yarn.lock
+    - run: yarn install
+    - run: yarn lint
