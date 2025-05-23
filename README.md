@@ -39,3 +39,8 @@ login irá aparecer, então entre com as seguintes credenciais:
 email: adm@teste.com
 senha: @1Senha
 ```
+
+## Erros conhecidos
+
+Por algum motivo o job de teste está quebrando no github, porém funciona localmente
+necessida te investigação.
