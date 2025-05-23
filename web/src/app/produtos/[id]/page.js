@@ -1,6 +1,6 @@
 import {Header} from '@app/components/ui/header';
 import {formatMoney} from '@app/lib/moneyFormatter';
-import {getProductById} from '@app/services/products';
+import {getProductById} from '@app/services/product.service';
 import Image from 'next/image';
 
 function getInstallmentAmount(amount) {

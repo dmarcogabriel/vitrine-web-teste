@@ -1,4 +1,4 @@
-import {getAllProducts} from '@app/services/products';
+import {getAllProducts} from '@app/services/product.service';
 import {ProductCard} from './ProductCard';
 import {Header} from '@app/components/ui/header';
 

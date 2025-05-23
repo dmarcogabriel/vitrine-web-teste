@@ -17,7 +17,7 @@ export function Header() {
   return (
     <nav className="flex justify-center p-4 shadow-sm gap-2">
       {!isRootScreen ? (
-        <button type="button" onClick={handleGoBack}>
+        <button className="cursor-pointer" type="button" onClick={handleGoBack}>
           <ArrowLeft />
         </button>
       ) : null}
