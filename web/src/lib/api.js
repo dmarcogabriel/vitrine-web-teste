@@ -33,6 +33,7 @@ async function fetchData(endpoint, options) {
     throw new RequestError({
       message: data.error,
       inputErrors: data.inputErrors,
+      status: res.status,
     });
   }
 
