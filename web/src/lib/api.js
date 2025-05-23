@@ -11,8 +11,6 @@ async function fetchData(endpoint, options) {
   // eslint-disable-next-line no-undef
   const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-  console.log('BASE URL: ', BASE_URL);
-
   const token = await getStoredSessionCookie();
 
   const res = await fetch(`${BASE_URL}/${endpoint}`, {
@@ -32,8 +30,6 @@ async function fetchData(endpoint, options) {
   const data = await res.json();
 
   if (!res.ok) {
-    console.log('DATA: ', data);
-    console.log(`HEADERS: `, res.headers);
     throw new RequestError({
       message: data.error,
       inputErrors: data.inputErrors,
