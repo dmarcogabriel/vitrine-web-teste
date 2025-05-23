@@ -44,9 +44,11 @@ MONGO_URI=mongodb://localhost:27017/vitrine
 JWT_KEY=development
 ```
 
-E então execute o seguinte comando para executar a API em modo desenvolvimento:
+E então execute os seguintes comandos para executar a API em modo desenvolvimento:
 
 ```bash
+npm install # ou yarn install
+
 npm run dev # ou yarn dev
 ```
 
